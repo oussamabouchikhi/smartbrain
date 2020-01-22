@@ -9,6 +9,11 @@ Face recognition web app that allow users login/logout to their accounts &amp; u
 You can grab Clarifai API key [here](https://www.clarifai.com/)<br>
 ** Make sure you use PostgreSQL instead of MySQL for this code base.
 
+## Tools
+- [Particles Js](https://www.npmjs.com/package/react-particles-js)
+- [tachyons.io](https://tachyons.io/)
+- [Pattern](https://leaverou.github.io/)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
