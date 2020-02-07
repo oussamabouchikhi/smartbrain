@@ -1,5 +1,6 @@
 # facedetectionapp
-Face recognition web app that allow users login/logout to their accounts &amp; upload an image to detect a face inside it using Clarifai API
+Face recognition web app that allow users login/logout to their accounts &amp; upload an image to detect a face inside it using Clarifai API<br><br>
+![](https://img.shields.io/badge/license-MIT-green)
 
 ## Usage
 1. Clone this repo
