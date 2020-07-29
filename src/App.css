@@ -1,6 +1,10 @@
 .App {
+  position: relative;
   text-align: center;
   background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  min-height: 100vh;
+  height: 100%;
+  overflow: auto;
 }
 
 .center {
