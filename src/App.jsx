@@ -12,16 +12,15 @@ import Rank from "./components/Rank/Rank";
 import FaceDetection from "./components/FaceDetection/FaceDetection";
 
 import "./App.css";
-
 //You must add your own API key here from Clarifai.
 const app = new Clarifai.App({
- apiKey: 'YOUR_API_KEY'
+ apiKey: 'a9ab926a9c634cb78682123e4c710a03'
 });
 
 const particlesOptions = {
   particles: {
     number: {
-      value: 30,
+      value: 70,
       density: {
         enable: true,
         value_area: 800
