@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Signin extends React.Component {
+class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,10 +27,10 @@ class Signin extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(data => {
-        if (data === 'success') {
-          console.log(data);
-          
+      .then(user => {
+        if (user.id) {
+          console.log(user);
+          this.props.loadUser(user);
           this.props.onRouteChange('home');
         }
       })
@@ -74,7 +74,7 @@ class Signin extends React.Component {
               />
             </div>
             <div className="lh-copy mt3">
-              <p  onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
+              <p  onClick={() => onRouteChange('signup')} className="f6 link dim black db pointer">Sign up</p>
             </div>
           </div>
         </main>
@@ -83,4 +83,4 @@ class Signin extends React.Component {
   }
 }
 
-export default Signin;
+export default SignIn;

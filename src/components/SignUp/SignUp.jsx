@@ -45,7 +45,7 @@ class SignUp extends React.Component {
     return (
       <article className="mw6 center br3 pa3 pa4-ns mv3 ba b--black-10 shadow-5">
         <main className="pa4 black-80">
-          <form className="measure">
+          <div className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0">Sign up</legend>
               <div className="mt3">
@@ -87,7 +87,7 @@ class SignUp extends React.Component {
                 value="signup"
               />
             </div>
-          </form>
+          </div>
         </main>
       </article>
     );

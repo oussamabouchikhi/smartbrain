@@ -39,7 +39,7 @@ class App extends Component {
       route: 'signin',
       isSignedIn: false,
       user: {
-        id: undefined,
+        id: '',
         name: '',
         email: '',
         entries: 0,
