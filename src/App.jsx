@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 
-import Clarifai from 'clarifai';
 import Particles from 'react-particles-js';
 
 import Navigation from "./components/Navigation/Navigation";
@@ -12,10 +11,6 @@ import Rank from "./components/Rank/Rank";
 import FaceDetection from "./components/FaceDetection/FaceDetection";
 
 import "./App.css";
-//You must add your own API key here from Clarifai.
-const app = new Clarifai.App({
- apiKey: 'a9ab926a9c634cb78682123e4c710a03'
-});
 
 const particlesOptions = {
   particles: {
@@ -83,28 +78,32 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    app.models
-      .predict(
-        Clarifai.FACE_DETECT_MODEL,
-        this.state.input)
-      .then(response => {
-        if (response) {
-          fetch('http://localhost:8000/image', {
-              method: 'put',
-              headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify({
-              id: this.state.user.id
-            })
+    fetch('http://localhost:8000/imageUrl', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          input: this.state.input
+        })
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response) {
+        fetch('http://localhost:8000/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+            id: this.state.user.id
           })
-            .then(response => response.json())
-            .then(count => {
-              this.setState(Object.assign(this.state.user, { entries: count}))
-            })
-            .catch(console.log);
-        }
-        this.displayFaceBox(this.calculateFaceLocation(response))
-      })
-      .catch(err => console.log(err));
+        })
+        .then(response => response.json())
+        .then(count => {
+          this.setState(Object.assign(this.state.user, { entries: count}))
+        })
+        .catch(console.log);
+      }
+      this.displayFaceBox(this.calculateFaceLocation(response))
+    })
+    .catch(console.log);
   }
 
   onRouteChange = (route) => {
